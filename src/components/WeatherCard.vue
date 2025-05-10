@@ -1,21 +1,21 @@
 <script setup>
-import { ref } from 'vue'
-import BorderLine from './BorderLine.vue'
-import WeatherForecastDay from './WeatherForecastDay.vue'
-import WeatherInfo from './WeatherInfo.vue'
+import { ref } from "vue";
+import BorderLine from "./BorderLine.vue";
+import WeatherForecastDay from "./WeatherForecastDay.vue";
+import WeatherInfo from "./WeatherInfo.vue";
 
 defineProps({
-  place: Object
-})
+  place: Object,
+});
 
-const emit = defineEmits(['delete-place'])
+const emit = defineEmits(["delete-place"]);
 
-const showDetail = ref(false)
+const showDetail = ref(false);
 
 const removePlace = (placeName) => {
-  emit('delete-place', placeName)
-  showDetail.value = false
-}
+  emit("delete-place", placeName);
+  showDetail.value = false;
+};
 </script>
 
 <template>
@@ -41,8 +41,15 @@ const removePlace = (placeName) => {
 
     <!-- current weather -->
     <div class="text-center flex-1">
-      <img :src="place.current.condition.icon" alt="icon" width="200" class="mx-auto -mb-10" />
-      <h1 class="text-9xl mb-2 -mr-4">{{ Math.round(place.current.temp_c) }}&deg;</h1>
+      <img
+        :src="place.current.condition.icon"
+        alt="icon"
+        width="200"
+        class="mx-auto -mb-10"
+      />
+      <h1 class="text-9xl mb-2 -mr-4">
+        {{ Math.round(place.current.temp_c) }}&deg;
+      </h1>
       <p class="text-2xl">{{ place.current.condition.text }}</p>
     </div>
 
@@ -66,7 +73,7 @@ const removePlace = (placeName) => {
 
     <!-- forecast btn -->
     <div class="flex justify-end items-center gap-1 mt-10">
-      <button @click="showDetail = true">
+      <button @click="showDetail = true" class="curson-pointer">
         More <i class="fa-solid fa-arrow-right text-sm -mb-px"></i>
       </button>
     </div>

@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from "vue";
+import autoAnimate from "@formkit/auto-animate";
 
 const emit = defineEmits(["place-data"]);
 
@@ -14,9 +15,7 @@ const handleSearch = () => {
   searchTerm.timeout = setTimeout(async () => {
     if (searchTerm.query !== "") {
       const res = await fetch(
-        `http://api.weatherapi.com/v1/search.json?key=${
-          import.meta.env.API_KEY
-        }&q=${searchTerm.query}`
+        `http://localhost:5127/search/${searchTerm.query}`
       );
 
       const data = await res.json();
@@ -28,11 +27,7 @@ const handleSearch = () => {
 };
 
 const getWeather = async (id) => {
-  const res = await fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=${
-      import.meta.env.API_KEY
-    }&q=id:${id}&days=3&aqi=no&alerts=no`
-  );
+  const res = await fetch(`http://localhost:5127/forcast/${id}`);
 
   const data = await res.json();
 
