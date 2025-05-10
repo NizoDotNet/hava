@@ -27,7 +27,7 @@ const handleSearch = () => {
 };
 
 const getWeather = async (id) => {
-  const res = await fetch(`http://localhost:5127/forcast/${id}`);
+  const res = await fetch(`http://localhost:5127/forecast/${id}`);
 
   const data = await res.json();
 
