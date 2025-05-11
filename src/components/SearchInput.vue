@@ -14,9 +14,7 @@ const handleSearch = () => {
   clearTimeout(searchTerm.timeout);
   searchTerm.timeout = setTimeout(async () => {
     if (searchTerm.query !== "") {
-      const res = await fetch(
-        `http://localhost:5127/search/${searchTerm.query}`
-      );
+      const res = await fetch(`/api/search/${searchTerm.query}`);
 
       const data = await res.json();
       searchTerm.results = data;
@@ -27,7 +25,7 @@ const handleSearch = () => {
 };
 
 const getWeather = async (id) => {
-  const res = await fetch(`http://localhost:5127/forecast/${id}`);
+  const res = await fetch(`/api/forecast/${id}`);
 
   const data = await res.json();
 
