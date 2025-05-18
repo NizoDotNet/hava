@@ -1,7 +1,7 @@
 <script setup>
 defineProps({
-  place: Object
-})
+  place: Object,
+});
 </script>
 
 <template>
@@ -20,19 +20,19 @@ defineProps({
       <div class="text-center flex-1">
         <i class="fa-solid fa-wind mb text-2xl"></i>
         <p class="text-xl font-bold">{{ place.current.wind_kph }} km/h</p>
-        <p>wind</p>
+        <p>külək</p>
       </div>
       <!-- Humidity level -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-droplet mb text-2xl"></i>
         <p class="text-xl font-bold">{{ place.current.humidity }}%</p>
-        <p>humidity</p>
+        <p>rütubət</p>
       </div>
       <!-- Precipitation -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-umbrella mb text-2xl"></i>
         <p class="text-xl font-bold">{{ place.current.precip_mm }} mm</p>
-        <p>precipitation</p>
+        <p>yağıntı</p>
       </div>
     </div>
     <div class="flex items-center justify-between gap-6 mb-10">
@@ -40,24 +40,28 @@ defineProps({
       <div class="text-center flex-1">
         <i class="fa-solid fa-fan mb text-2xl"></i>
         <p class="text-xl font-bold">{{ place.current.wind_dir }}</p>
-        <p>direction</p>
+        <p>istiqamət</p>
       </div>
       <!-- Feels like -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-temperature-half mb text-2xl"></i>
-        <p class="text-xl font-bold">{{ Math.round(place.current.feelslike_c) }}</p>
-        <p>Feels</p>
+        <p class="text-xl font-bold">
+          {{ Math.round(place.current.feelslike_c) }}
+        </p>
+        <p>Hiss edilir</p>
       </div>
       <!-- UV -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-sun mb text-2xl"></i>
         <p class="text-xl font-bold">{{ place.current.uv }}</p>
-        <p>UV index</p>
+        <p>UB İndeksi</p>
       </div>
     </div>
     <!-- Last update and delete -->
     <div class="flex justify-between items-center">
-      <h3 class="text-slate-900/50">last update: {{ place.current.last_updated }}</h3>
+      <h3 class="text-slate-900/50">
+        yenilənib: {{ place.current.last_updated }}
+      </h3>
       <button @click="$emit('remove-place')">
         <i class="fa-solid fa-trash"></i>
       </button>
